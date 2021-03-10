@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DeseosService } from '../../services/deseos.service';
 import { Lista } from '../../models/lista.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -9,8 +10,13 @@ import { Lista } from '../../models/lista.model';
 })
 export class Tab1Page {
   Listas:Lista[]=[];
-  constructor(public deseosServices:DeseosService) {
+  constructor(public deseosServices:DeseosService,
+    private router:Router) {
     this.Listas=deseosServices.listas;
   }
 
+
+  addingList(){
+    this.router.navigateByUrl('tabs/tab1/adding');
+  }
 }
