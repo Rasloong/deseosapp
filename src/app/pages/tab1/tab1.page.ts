@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DeseosService } from '../../services/deseos.service';
+import { Lista } from '../../models/lista.model';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor() {}
+  Listas:Lista[]=[];
+  constructor(public deseosServices:DeseosService) {
+    this.Listas=deseosServices.listas;
+  }
 
 }
