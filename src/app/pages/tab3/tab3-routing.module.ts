@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
+  },{
+    path: 'adding/:listaId',
+    loadChildren: () =>
+      import('../adding/adding.module').then((m) => m.AddingPageModule),
   }
 ];
 
