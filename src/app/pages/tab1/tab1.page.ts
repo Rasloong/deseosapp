@@ -42,7 +42,8 @@ export class Tab1Page {
             if(data.iptNombre.length===0){
               return;
             }else{
-              this.deseosServices.crearLista(data.iptNombre);
+              const lId=this.deseosServices.crearLista(data.iptNombre);
+              this.router.navigateByUrl(`/tabs/tab1/adding/${lId}`);
             }
           }
         }

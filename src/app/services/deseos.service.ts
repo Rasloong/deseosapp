@@ -7,15 +7,33 @@ import {Lista} from '../models/lista.model';
 export class DeseosService {
   listas:Lista[]=[];
   constructor() {
-    const Lista1=new Lista('Lista Prueba #1');
-    const Lista2=new Lista('Lista Prueba #2');
-    this.listas.push(Lista1,Lista2);
+    this.cargarStorage();
     console.log(this.listas);
    }
 
    crearLista(titulo:string){
      const nuevalista=new Lista(titulo);
      this.listas.push(nuevalista);
+     this.guardarStorage();
+     return nuevalista.id;
+   }
+
+   obtenerLista(id:string|number){
+      id=Number(id);
+      return this.listas.find(listaData=>listaData.id===id);
+   }
+
+   guardarStorage(){
+      localStorage.setItem('data',JSON.stringify(this.listas));
+   }
+
+   cargarStorage(){
+    if(localStorage.getItem('data')){
+      this.listas=JSON.parse(localStorage.getItem('data'));
+    }else{
+      this.listas=[];
+    }
+
    }
 
 }
