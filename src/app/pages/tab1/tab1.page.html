@@ -8,9 +8,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="dark">
+    <app-listas></app-listas>
     <ion-list>
-        <ion-item *ngFor="let l of Listas" color="dark" detail>
+        <ion-item *ngFor="let l of Listas;" color="dark" detail (click)="listaseleccion(l)">
             <ion-label>{{l.title}}</ion-label>
+            <ion-note color="tertiary" slot="end">{{l.items.length}} items</ion-note>
         </ion-item>
     </ion-list>
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
