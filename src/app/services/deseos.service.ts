@@ -17,6 +17,10 @@ export class DeseosService {
      this.guardarStorage();
      return nuevalista.id;
    }
+   BorrarLista(lista:Lista){
+     this.listas=this.listas.filter(ldata=>ldata.id!==lista.id);
+     this.guardarStorage();
+   }
 
    obtenerLista(id:string|number){
       id=Number(id);

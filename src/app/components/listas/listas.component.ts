@@ -25,4 +25,8 @@ export class ListasComponent implements OnInit {
     }
 
   }
+
+  BorrarLista(l:Lista){
+    this.deseosServices.BorrarLista(l);
+  }
 }
