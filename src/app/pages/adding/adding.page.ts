@@ -41,4 +41,9 @@ export class AddingPage implements OnInit {
     this.ds.guardarStorage();
 
   }
+
+  Borrar(i:number){
+    this.lista.items.splice(i,1);
+    this.ds.guardarStorage();
+  }
 }
