@@ -12,4 +12,10 @@ export class DeseosService {
     this.listas.push(Lista1,Lista2);
     console.log(this.listas);
    }
+
+   crearLista(titulo:string){
+     const nuevalista=new Lista(titulo);
+     this.listas.push(nuevalista);
+   }
+
 }
