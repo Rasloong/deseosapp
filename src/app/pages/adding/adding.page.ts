@@ -29,4 +29,16 @@ export class AddingPage implements OnInit {
       this.ds.guardarStorage();
     }
   }
+  cambioCheck(item:ListaItem){
+    const pend=this.lista.items.filter(itemData=>!itemData.status).length;
+    if(pend===0){
+      this.lista.completedDate=new Date();
+      this.lista.status=true;
+    }else{
+      this.lista.completedDate=null;
+      this.lista.status=false;
+    }
+    this.ds.guardarStorage();
+
+  }
 }
