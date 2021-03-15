@@ -31,7 +31,7 @@ export class ListasComponent implements OnInit {
   BorrarLista(l:Lista){
     this.deseosServices.BorrarLista(l);
   }
-  
+
   async EditList(lista:Lista){
     const alert=await this.alertCtrl.create({
       header:'Editar Nombre Lista',
@@ -57,6 +57,7 @@ export class ListasComponent implements OnInit {
               return;
             }else{
               lista.title=data.iptNombre;
+              this.deseosServices.guardarStorage();
             }
           }
         }
